@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 192 91% 37%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 45 93% 47%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 192 91% 37%;
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 18px; /* base: 18px */
+  }
+
+  body {
+    @apply bg-white text-brand-dark;
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    line-height: 1.1;
+    @apply text-brand-dark;
+  }
+
+  p {
+    line-height: 1.75;
+  }
+
+  /* Smooth visibility for GSAP autoAlpha */
+  [data-gsap] { visibility: hidden; }
+}
+
+@layer components {
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-semibold rounded-full transition-all duration-300 hover:bg-brand-teal-dark hover:-translate-y-0.5 hover:shadow-teal active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-primary text-primary font-semibold rounded-full transition-all duration-300 hover:bg-primary hover:text-white hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-primary font-semibold rounded-full transition-all duration-200 hover:bg-primary/10 cursor-pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+  }
+
+  /* ── Badges ── */
+  .badge-teal {
+    @apply inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-primary/10 text-primary;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .badge-green {
+    @apply inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-50 text-emerald-700;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ── Layout ── */
+  .container-wide {
+    @apply max-w-7xl mx-auto px-5 sm:px-8 lg:px-12;
+  }
+
+  .container-tight {
+    @apply max-w-5xl mx-auto px-5 sm:px-8 lg:px-12;
+  }
+
+  .section-padding {
+    @apply py-24 lg:py-32;
+  }
+
+  /* ── Typography ── */
+  .display-xl {
+    font-family: 'Playfair Display', Georgia, serif;
+    @apply font-bold text-brand-dark;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  .display-lg {
+    font-family: 'Playfair Display', Georgia, serif;
+    @apply font-bold text-brand-dark;
+    font-size: clamp(2.2rem, 5vw, 3.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+  }
+
+  .display-md {
+    font-family: 'Playfair Display', Georgia, serif;
+    @apply font-bold text-brand-dark;
+    font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+    line-height: 1.15;
+  }
+
+  .body-lg {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    @apply text-brand-slate;
+  }
+
+  .body-xl {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    @apply text-brand-slate;
+  }
+
+  .label-sm {
+    font-family: 'Inter', sans-serif;
+    @apply text-xs font-bold uppercase tracking-widest text-brand-muted;
+  }
+
+  /* ── Cards ── */
+  .card-clean {
+    @apply bg-white rounded-2xl border border-slate-200 transition-all duration-300 hover:border-primary/30 hover:shadow-[0_8px_40px_rgba(8,145,178,0.12)] hover:-translate-y-1 cursor-pointer;
+  }
+
+  /* ── Gradient text ── */
+  .text-gradient-teal {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #0891B2 0%, #0E7490 100%);
+  }
+
+  /* ── Section accent line ── */
+  .accent-line {
+    @apply block h-px bg-primary origin-left;
+    width: 3rem;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .font-sans-base {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+}
+
+/* GSAP visibility helper — prevent flash before animation */
+.gsap-hidden {
+  visibility: hidden;
+}
+
+/* Swiper */
+.swiper-pagination-bullet {
+  @apply bg-brand-muted opacity-100 !important;
+  width: 8px !important; height: 8px !important;
+}
+.swiper-pagination-bullet-active {
+  @apply bg-primary !important;
+  width: 24px !important;
+  border-radius: 4px !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #F0FDFA; }
+::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #0891B2; }
+
+/* Marquee animation */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
