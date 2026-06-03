@@ -4,22 +4,35 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Shield, Star, Stethoscope, Users, Building2, Globe2, CheckCircle } from "lucide-react";
+import {
+  ArrowRight, Phone, Calendar, Stethoscope,
+  Shield, CheckCircle, Users, Building2, Globe2, Star, Clock,
+} from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const trustItems = [
-  { icon: Shield,       label: "JCI Accredited",    sub: "200+ partner hospitals" },
-  { icon: Star,         label: "97% Outcomes",      sub: "Clinical success rate"  },
-  { icon: CheckCircle,  label: "Free Assessment",   sub: "No obligation"          },
+const accreditations = [
+  { label: "JCI Accredited", color: "bg-emerald-500" },
+  { label: "ISO 9001:2015",  color: "bg-blue-500"    },
+  { label: "NABH Partner",   color: "bg-violet-500"  },
+  { label: "Temos Certified",color: "bg-amber-500"   },
 ];
 
-const heroStats = [
-  { icon: Users,     value: "50,000+", label: "Patients Treated"    },
-  { icon: Building2, value: "200+",    label: "Accredited Hospitals" },
-  { icon: Globe2,    value: "45+",     label: "Countries Served"     },
+const stats = [
+  { icon: Users,     value: "50,000+", label: "Patients Successfully Treated", sub: "From 95+ nationalities" },
+  { icon: Building2, value: "200+",    label: "JCI-Accredited Hospitals",      sub: "Partner-only network"   },
+  { icon: Star,      value: "97%",     label: "Positive Clinical Outcomes",    sub: "Independently verified" },
+  { icon: Globe2,    value: "45+",     label: "Countries Served",              sub: "Across 6 continents"    },
+];
+
+const quickLinks = [
+  { icon: Stethoscope, label: "Cardiology",    href: "/services/cardiology"   },
+  { icon: Stethoscope, label: "Oncology",      href: "/services/oncology"     },
+  { icon: Stethoscope, label: "Orthopaedics",  href: "/services/orthopaedics" },
+  { icon: Stethoscope, label: "IVF",           href: "/services/ivf"          },
+  { icon: Stethoscope, label: "Neurology",     href: "/services/neurology"    },
 ];
 
 export default function HeroSection() {
@@ -29,31 +42,20 @@ export default function HeroSection() {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      tl.from(".h-badge", { y: -20, autoAlpha: 0, duration: 0.6 }, 0)
-        .from(".h-line-1", { x: -80, autoAlpha: 0, duration: 1.0 }, 0.2)
-        .from(".h-line-2", { x: -80, autoAlpha: 0, duration: 1.0 }, 0.35)
-        .from(".h-line-3", { x: -80, autoAlpha: 0, duration: 1.0 }, 0.5)
-        .from(".h-sub", { y: 40, autoAlpha: 0, duration: 1.1, ease: "elastic.out(1, 0.75)" }, 0.75)
-        .from(".h-actions", { y: 28, autoAlpha: 0, duration: 0.9, ease: "elastic.out(1, 0.75)" }, 0.95)
-        .from(".h-stat", { y: 20, autoAlpha: 0, stagger: 0.12, duration: 0.7, ease: "elastic.out(1, 0.8)" }, 1.1)
-        .from(".h-img-panel", {
-          clipPath: "inset(0 100% 0 0 round 20px)",
-          duration: 1.4,
-          ease: "expo.inOut",
-        }, 0.15)
-        .from(".h-trust", { y: 30, autoAlpha: 0, stagger: 0.12, duration: 0.7, ease: "back.out(1.3)" }, 0.6)
-        .from(".h-savings", { y: 20, autoAlpha: 0, duration: 0.6 }, 1.0);
+      tl.from(".h-emergency", { y: -20, autoAlpha: 0, duration: 0.5 }, 0)
+        .from(".h-accr",      { y: -16, autoAlpha: 0, stagger: 0.07, duration: 0.5 }, 0.2)
+        .from(".h-headline",  { y: 50,  autoAlpha: 0, duration: 1.0 }, 0.35)
+        .from(".h-sub",       { y: 30,  autoAlpha: 0, duration: 0.9 }, 0.55)
+        .from(".h-cta",       { y: 24,  autoAlpha: 0, stagger: 0.1, duration: 0.7 }, 0.75)
+        .from(".h-links",     { y: 16,  autoAlpha: 0, duration: 0.6 }, 0.95)
+        .from(".h-photo",     { clipPath: "inset(0 100% 0 0 round 24px)", duration: 1.3, ease: "expo.inOut" }, 0.2)
+        .from(".h-book-card", { y: 30,  autoAlpha: 0, duration: 0.7, ease: "back.out(1.2)" }, 0.9);
 
-      // Parallax on scroll
-      gsap.to(".h-img-inner", {
-        yPercent: 15,
+      // Subtle parallax
+      gsap.to(".h-photo-inner", {
+        yPercent: 12,
         ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
+        scrollTrigger: { trigger: sectionRef.current, start: "top top", end: "bottom top", scrub: 1.5 },
       });
     }, sectionRef);
 
@@ -61,165 +63,228 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative min-h-[95vh] flex items-center overflow-hidden"
-    >
-      {/* Sage-tinted base */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(160deg, #EEF7F2 0%, #F4FBF8 40%, #F2FAF6 100%)" }} />
+    <section ref={sectionRef} className="relative min-h-screen overflow-hidden flex flex-col">
 
-      {/* Aurora animated orbs — sage green */}
+      {/* ── Deep forest background ── */}
+      <div className="absolute inset-0" style={{ background: "linear-gradient(150deg, #071510 0%, #0B2018 45%, #0D2B22 100%)" }} />
+
+      {/* Subtle grid pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.035] pointer-events-none"
+        style={{
+          backgroundImage: "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
+        }}
+      />
+
+      {/* Ambient glow orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Orb 1 — deep sage, top-left */}
-        <div
-          className="animate-aurora-1 absolute -top-[15%] -left-[5%] w-[75vw] h-[75vw] max-w-[1000px] max-h-[1000px] rounded-full"
-          style={{
-            background: "radial-gradient(circle at center, rgba(27,107,83,0.28) 0%, rgba(46,175,127,0.15) 40%, transparent 68%)",
-            filter: "blur(50px)",
-          }}
-        />
-        {/* Orb 2 — mid sage, right */}
-        <div
-          className="animate-aurora-2 absolute top-[5%] right-[-10%] w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] rounded-full"
-          style={{
-            background: "radial-gradient(circle at center, rgba(46,175,127,0.20) 0%, rgba(20,84,65,0.10) 45%, transparent 68%)",
-            filter: "blur(65px)",
-          }}
-        />
-        {/* Orb 3 — pale sage, bottom-center */}
-        <div
-          className="animate-aurora-3 absolute bottom-[-5%] left-[15%] w-[55vw] h-[55vw] max-w-[750px] max-h-[750px] rounded-full"
-          style={{
-            background: "radial-gradient(circle at center, rgba(20,84,65,0.18) 0%, rgba(27,107,83,0.09) 50%, transparent 68%)",
-            filter: "blur(55px)",
-          }}
-        />
-        {/* Dot grid */}
-        <div
-          className="absolute inset-0 opacity-[0.40]"
-          style={{
-            backgroundImage: "radial-gradient(circle, rgba(27,107,83,0.20) 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
-          }}
-        />
+        <div className="absolute -top-32 left-[5%] w-[600px] h-[600px] rounded-full opacity-30"
+          style={{ background: "radial-gradient(circle, rgba(27,107,83,0.35) 0%, transparent 70%)", filter: "blur(80px)" }} />
+        <div className="absolute top-1/2 right-0 w-[500px] h-[500px] rounded-full opacity-20"
+          style={{ background: "radial-gradient(circle, rgba(46,175,127,0.25) 0%, transparent 70%)", filter: "blur(100px)" }} />
       </div>
 
-      <div className="container-wide relative z-10 py-20 lg:py-0">
-        <div className="grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-20 items-center">
-
-          {/* ── LEFT ── */}
-          <div className="order-2 lg:order-1">
-            <div className="h-badge inline-flex items-center gap-2.5 px-4 py-2 bg-primary/8 border border-primary/20 rounded-full mb-8">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse flex-shrink-0" />
-              <span className="text-sm font-semibold text-primary font-sans tracking-wide">
-                ISO & JCI Certified Care · 45 Countries
-              </span>
-            </div>
-
-            <div className="overflow-hidden mb-3">
-              <p className="h-line-1 display-xl">World-Class</p>
-            </div>
-            <div className="overflow-hidden mb-3">
-              <p className="h-line-2 display-xl text-gradient-teal">Healthcare,</p>
-            </div>
-            <div className="overflow-hidden mb-8">
-              <p className="h-line-3 display-xl">Wherever You Are</p>
-            </div>
-
-            <p className="h-sub body-xl max-w-lg mb-10">
-              Access treatment at <strong className="text-brand-dark font-semibold">200+ JCI-accredited hospitals</strong> across
-              45 countries — guided by a dedicated medical coordinator from your first consultation through to full recovery.
-            </p>
-
-            <div className="h-actions flex flex-col sm:flex-row gap-4 mb-12">
-              <Link href="/contact" className="btn-primary text-base gap-2.5 shadow-sage">
-                Request a Free Assessment
-                <ArrowRight size={18} />
-              </Link>
-              <Link href="/services" className="btn-outline text-base gap-2.5">
-                <Stethoscope size={18} />
-                Browse Treatments
-              </Link>
-            </div>
-
-            {/* Stats row */}
-            <div className="flex flex-wrap gap-8 pt-8 border-t border-slate-200">
-              {heroStats.map((s) => (
-                <div key={s.label} className="h-stat flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
-                    <s.icon size={20} />
-                  </div>
-                  <div>
-                    <p className="font-display font-bold text-2xl text-brand-dark leading-none">{s.value}</p>
-                    <p className="text-sm text-brand-muted font-sans mt-0.5">{s.label}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+      {/* ── Emergency bar ── */}
+      <div className="h-emergency relative z-20 bg-red-600/90 backdrop-blur-sm border-b border-red-500/50">
+        <div className="container-wide flex items-center justify-between py-2.5">
+          <div className="flex items-center gap-3">
+            <span className="w-2 h-2 rounded-full bg-white animate-pulse flex-shrink-0" />
+            <span className="text-white font-bold font-sans text-sm tracking-wide">
+              Medical Emergency — Available 24/7
+            </span>
           </div>
+          <a
+            href="tel:+18006332784"
+            className="flex items-center gap-2 bg-white text-red-600 font-black font-sans text-sm px-4 py-1.5 rounded-full hover:bg-red-50 transition-colors"
+          >
+            <Phone size={13} />
+            +1 800 ONE EARTH
+          </a>
+        </div>
+      </div>
 
-          {/* ── RIGHT: Image Panel ── */}
-          <div className="order-1 lg:order-2 relative hidden lg:block h-[640px]">
-            <div className="h-img-panel absolute inset-0 rounded-2xl overflow-hidden shadow-[0_32px_80px_rgba(27,107,83,0.22)]">
-              <div className="h-img-inner absolute -inset-x-0 -top-[8%] -bottom-[8%]">
-                <Image
-                  src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=900&q=85&fit=crop"
-                  alt="World-class hospital operating theatre"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="50vw"
-                />
+      {/* ── Main hero content ── */}
+      <div className="relative z-10 flex-1 flex items-center">
+        <div className="container-wide w-full py-16 lg:py-20">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 xl:gap-20 items-center">
+
+            {/* ── LEFT ── */}
+            <div>
+
+              {/* Accreditation badges */}
+              <div className="flex flex-wrap gap-2 mb-8">
+                {accreditations.map((a) => (
+                  <div key={a.label} className="h-accr flex items-center gap-1.5 bg-white/8 border border-white/15 rounded-full px-3.5 py-1.5">
+                    <span className={`w-1.5 h-1.5 rounded-full ${a.color} flex-shrink-0`} />
+                    <span className="text-white/80 font-sans text-xs font-semibold">{a.label}</span>
+                  </div>
+                ))}
               </div>
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/55 via-primary/15 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/45 via-transparent to-transparent" />
 
-              {/* Hospital badge */}
-              <div className="absolute top-6 left-6 flex items-center gap-3 bg-white/15 backdrop-blur-md border border-white/25 rounded-xl px-4 py-3">
-                <Shield size={18} className="text-white flex-shrink-0" />
-                <div>
-                  <p className="text-white text-sm font-bold font-sans leading-tight">Bumrungrad International</p>
-                  <p className="text-white/70 text-xs font-sans">JCI Accredited · Bangkok</p>
+              {/* Headline */}
+              <div className="h-headline mb-6">
+                <h1 className="font-display font-bold text-white leading-[1.06]"
+                  style={{ fontSize: "clamp(2.6rem, 5.5vw, 4.2rem)" }}>
+                  Expert Medical Care<br />
+                  <span
+                    className="bg-clip-text text-transparent"
+                    style={{ backgroundImage: "linear-gradient(135deg, #2EAF7F 0%, #34C68F 50%, #1B6B53 100%)" }}
+                  >
+                    Across 45 Countries
+                  </span>
+                </h1>
+              </div>
+
+              {/* Sub */}
+              <p className="h-sub text-white/65 font-sans text-lg leading-relaxed mb-10 max-w-xl">
+                Connect with board-certified specialists at 200+ JCI-accredited hospitals worldwide.
+                Your dedicated medical coordinator guides you from your first consultation to full recovery.
+              </p>
+
+              {/* CTAs */}
+              <div className="flex flex-wrap gap-3 mb-10">
+                <Link
+                  href="/contact"
+                  className="h-cta inline-flex items-center gap-2.5 px-8 py-4 bg-primary text-white font-bold rounded-full font-sans text-base hover:bg-brand-sage-dark transition-all duration-300 shadow-[0_8px_32px_rgba(27,107,83,0.4)] hover:shadow-[0_12px_40px_rgba(27,107,83,0.5)] hover:-translate-y-0.5"
+                >
+                  <Calendar size={18} />
+                  Book Free Consultation
+                </Link>
+                <Link
+                  href="/services"
+                  className="h-cta inline-flex items-center gap-2.5 px-8 py-4 border-2 border-white/25 text-white font-bold rounded-full font-sans text-base hover:border-white/60 hover:bg-white/8 transition-all duration-300 backdrop-blur-sm"
+                >
+                  Find a Specialist
+                  <ArrowRight size={18} />
+                </Link>
+              </div>
+
+              {/* Quick specialty links */}
+              <div className="h-links">
+                <p className="text-white/35 text-xs font-sans font-bold uppercase tracking-widest mb-3">Quick access</p>
+                <div className="flex flex-wrap gap-2">
+                  {quickLinks.map((l) => (
+                    <Link
+                      key={l.label}
+                      href={l.href}
+                      className="px-4 py-2 bg-white/6 border border-white/12 rounded-full text-white/70 text-xs font-semibold font-sans hover:bg-white/12 hover:text-white hover:border-white/25 transition-all duration-200"
+                    >
+                      {l.label}
+                    </Link>
+                  ))}
+                  <Link
+                    href="/services"
+                    className="px-4 py-2 bg-white/6 border border-white/12 rounded-full text-primary text-xs font-semibold font-sans hover:bg-primary/15 transition-all duration-200"
+                  >
+                    View All →
+                  </Link>
                 </div>
-              </div>
-
-              {/* Clinical outcome badge */}
-              <div className="h-savings absolute bottom-6 left-6 bg-white rounded-xl px-5 py-4 shadow-xl">
-                <p className="font-display font-bold text-3xl text-primary leading-none">97%</p>
-                <p className="text-sm text-brand-slate font-sans mt-1">Clinical success rate</p>
               </div>
             </div>
 
-            {/* Floating trust cards */}
-            {trustItems.map((item, i) => (
+            {/* ── RIGHT: Doctor imagery ── */}
+            <div className="hidden lg:block relative">
+
+              {/* Main photo */}
+              <div className="h-photo relative rounded-3xl overflow-hidden"
+                style={{ height: "560px", boxShadow: "0 40px 120px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08)" }}>
+                <div className="h-photo-inner absolute -inset-x-0 -top-[8%] -bottom-[8%]">
+                  <Image
+                    src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=800&q=90&fit=crop"
+                    alt="Board-certified medical specialist in consultation"
+                    fill
+                    className="object-cover object-top"
+                    priority
+                    sizes="40vw"
+                  />
+                </div>
+                {/* Bottom gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B2018]/70 via-transparent to-transparent" />
+                {/* Left edge fade */}
+                <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#0B2018]/40 to-transparent" />
+
+                {/* Floating hospital badge */}
+                <div className="absolute top-5 left-5 flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-3">
+                  <Shield size={16} className="text-emerald-400 flex-shrink-0" />
+                  <div>
+                    <p className="text-white text-xs font-bold font-sans leading-tight">JCI Gold Seal</p>
+                    <p className="text-white/55 text-[10px] font-sans">All partner hospitals</p>
+                  </div>
+                </div>
+
+                {/* Bottom stat */}
+                <div className="absolute bottom-5 left-5 right-5">
+                  <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl px-5 py-4 flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-primary/30 flex items-center justify-center flex-shrink-0">
+                      <CheckCircle size={20} className="text-emerald-400" />
+                    </div>
+                    <div>
+                      <p className="text-white font-bold font-sans text-sm leading-tight">97% Clinical Success Rate</p>
+                      <p className="text-white/50 text-xs font-sans mt-0.5">Independently verified · 50,000+ patients</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating quick-book card */}
               <motion.div
-                key={item.label}
-                className={`h-trust absolute bg-white/90 backdrop-blur-sm border border-white/80 rounded-xl shadow-glass px-4 py-3 flex items-center gap-3 w-56 ${
-                  i === 0 ? "-top-2 -right-4"
-                  : i === 1 ? "top-[45%] -right-8 -translate-y-1/2"
-                  : "bottom-24 -right-4"
-                }`}
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 3.5 + i * 0.7, repeat: Infinity, ease: "easeInOut", delay: i * 1 }}
+                className="h-book-card absolute -left-10 top-1/2 -translate-y-1/2 bg-white rounded-2xl shadow-[0_24px_80px_rgba(0,0,0,0.25)] p-5 w-56 border border-slate-100"
+                animate={{ y: [-4, 4, -4] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
-                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <item.icon size={16} className="text-primary" />
+                <p className="text-brand-dark font-display font-bold text-sm mb-3 leading-tight">Free Medical Assessment</p>
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Clock size={13} className="text-primary" />
+                  </div>
+                  <p className="text-brand-slate text-xs font-sans">Response within 24 hrs</p>
                 </div>
-                <div>
-                  <p className="text-sm font-bold text-brand-dark font-sans leading-tight">{item.label}</p>
-                  <p className="text-xs text-brand-muted font-sans">{item.sub}</p>
-                </div>
+                <Link
+                  href="/contact"
+                  className="w-full flex items-center justify-center gap-1.5 bg-primary text-white text-xs font-bold font-sans rounded-xl py-2.5 hover:bg-brand-sage-dark transition-colors"
+                >
+                  Book Now <ArrowRight size={12} />
+                </Link>
               </motion.div>
-            ))}
+
+              {/* Floating rating card */}
+              <motion.div
+                className="absolute -right-8 top-16 bg-white rounded-2xl shadow-[0_16px_60px_rgba(0,0,0,0.18)] p-4 border border-slate-100"
+                animate={{ y: [3, -3, 3] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              >
+                <div className="flex items-center gap-2 mb-1">
+                  {[1,2,3,4,5].map(i => (
+                    <Star key={i} size={12} className="fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <p className="text-brand-dark font-bold font-sans text-xs">4.9 / 5.0</p>
+                <p className="text-brand-muted text-[10px] font-sans">12,400+ verified reviews</p>
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom wave — matches StatsSection gradient start */}
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
-        <svg viewBox="0 0 1440 56" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <path d="M0 56L1440 56L1440 28C1200 56 960 4 720 20C480 36 240 8 0 28L0 56Z" fill="#EEF7F2" />
-        </svg>
+      {/* ── Stats strip ── */}
+      <div className="relative z-10 bg-white border-t border-slate-100">
+        <div className="container-wide">
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-slate-100">
+            {stats.map((s) => (
+              <div key={s.label} className="flex items-center gap-4 px-6 lg:px-8 py-7">
+                <div className="w-11 h-11 rounded-xl bg-primary/8 flex items-center justify-center flex-shrink-0">
+                  <s.icon size={20} className="text-primary" />
+                </div>
+                <div>
+                  <p className="font-display font-black text-2xl text-brand-dark leading-none">{s.value}</p>
+                  <p className="text-[11px] font-bold text-brand-dark font-sans mt-0.5 leading-tight">{s.label}</p>
+                  <p className="text-[10px] text-brand-muted font-sans mt-0.5">{s.sub}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
