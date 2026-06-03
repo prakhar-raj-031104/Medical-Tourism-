@@ -119,10 +119,7 @@ export default function ServicesSection() {
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
 
-                    {/* Specialty gradient overlay — tints photo with brand color */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${cfg.header}`} />
-
-                    {/* Bottom vignette for icon contrast */}
+                    {/* Bottom vignette for icon/badge contrast only */}
                     <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
 
                     {/* Watermark number */}
