@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Heart, Brain, Eye, Baby, Smile, Sparkles, Activity, Bone, Shield } from "lucide-react";
 import { services } from "@/lib/data";
@@ -21,16 +22,28 @@ const iconMap: Record<string, React.ElementType> = {
   eye: Eye,
 };
 
+// Context-relevant medical photos — one per speciality
+const serviceImages: Record<string, string> = {
+  cardiology:    "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80&fit=crop",
+  oncology:      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80&fit=crop",
+  orthopaedics:  "https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&q=80&fit=crop",
+  ivf:           "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&q=80&fit=crop",
+  dental:        "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80&fit=crop",
+  neurology:     "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=600&q=80&fit=crop",
+  cosmetic:      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80&fit=crop",
+  ophthalmology: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=600&q=80&fit=crop",
+};
+
 // Light pastel header per service — matches site's white/teal palette
-const cardCfg: Record<string, { header: string; iconBg: string; iconText: string; accent: string; num: string }> = {
-  cardiology:    { header: "from-rose-50 to-red-100/60",     iconBg: "bg-rose-100",    iconText: "text-rose-600",    accent: "border-rose-300",    num: "01" },
-  oncology:      { header: "from-violet-50 to-purple-100/60",iconBg: "bg-violet-100",  iconText: "text-violet-600",  accent: "border-violet-300",  num: "02" },
-  orthopaedics:  { header: "from-blue-50 to-cyan-100/60",    iconBg: "bg-blue-100",    iconText: "text-blue-600",    accent: "border-blue-300",    num: "03" },
-  ivf:           { header: "from-pink-50 to-rose-100/60",    iconBg: "bg-pink-100",    iconText: "text-pink-600",    accent: "border-pink-300",    num: "04" },
-  dental:        { header: "from-teal-50 to-cyan-100/60",    iconBg: "bg-teal-100",    iconText: "text-teal-600",    accent: "border-teal-300",    num: "05" },
-  neurology:     { header: "from-amber-50 to-orange-100/60", iconBg: "bg-amber-100",   iconText: "text-amber-600",   accent: "border-amber-300",   num: "06" },
-  cosmetic:      { header: "from-fuchsia-50 to-pink-100/60", iconBg: "bg-fuchsia-100", iconText: "text-fuchsia-600", accent: "border-fuchsia-300", num: "07" },
-  ophthalmology: { header: "from-sky-50 to-blue-100/60",     iconBg: "bg-sky-100",     iconText: "text-sky-600",     accent: "border-sky-300",     num: "08" },
+const cardCfg: Record<string, { header: string; iconBg: string; iconText: string; accent: string; num: string; bar: string }> = {
+  cardiology:    { header: "from-rose-500/55 to-red-700/65",     iconBg: "bg-rose-100",    iconText: "text-rose-600",    accent: "border-rose-300",    num: "01", bar: "bg-rose-500"    },
+  oncology:      { header: "from-violet-500/55 to-purple-700/65",iconBg: "bg-violet-100",  iconText: "text-violet-600",  accent: "border-violet-300",  num: "02", bar: "bg-violet-500"  },
+  orthopaedics:  { header: "from-blue-500/55 to-indigo-700/65",  iconBg: "bg-blue-100",    iconText: "text-blue-600",    accent: "border-blue-300",    num: "03", bar: "bg-blue-500"    },
+  ivf:           { header: "from-pink-500/55 to-rose-700/65",    iconBg: "bg-pink-100",    iconText: "text-pink-600",    accent: "border-pink-300",    num: "04", bar: "bg-pink-500"    },
+  dental:        { header: "from-teal-500/55 to-emerald-700/65", iconBg: "bg-teal-100",    iconText: "text-teal-600",    accent: "border-teal-300",    num: "05", bar: "bg-teal-500"    },
+  neurology:     { header: "from-amber-400/55 to-orange-600/65", iconBg: "bg-amber-100",   iconText: "text-amber-600",   accent: "border-amber-300",   num: "06", bar: "bg-amber-500"   },
+  cosmetic:      { header: "from-fuchsia-500/55 to-pink-700/65", iconBg: "bg-fuchsia-100", iconText: "text-fuchsia-600", accent: "border-fuchsia-300", num: "07", bar: "bg-fuchsia-500" },
+  ophthalmology: { header: "from-sky-500/55 to-blue-700/65",     iconBg: "bg-sky-100",     iconText: "text-sky-600",     accent: "border-sky-300",     num: "08", bar: "bg-sky-500"     },
 };
 
 export default function ServicesSection() {
@@ -91,33 +104,52 @@ export default function ServicesSection() {
                   className="svc-card-inner group block bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-primary/30 hover:shadow-glass-hover transition-all duration-300 cursor-pointer h-full"
                   style={{ transformStyle: "preserve-3d" }}
                 >
-                  {/* Pastel gradient header */}
-                  <div className={`relative h-36 bg-gradient-to-br ${cfg.header} overflow-hidden`}>
+                  {/* ── Photo header ──────────────────────── */}
+                  <div className="relative h-44 overflow-hidden bg-slate-200">
+
+                    {/* Specialty accent bar — top */}
+                    <div className={`absolute top-0 left-0 right-0 h-[5px] z-30 ${cfg.bar}`} />
+
+                    {/* Real medical photo — clearly visible */}
+                    <Image
+                      src={serviceImages[service.id] ?? serviceImages.cardiology}
+                      alt={`${service.title} — specialist treatment`}
+                      fill
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+
+                    {/* Specialty gradient overlay — tints photo with brand color */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${cfg.header}`} />
+
+                    {/* Bottom vignette for icon contrast */}
+                    <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+
                     {/* Watermark number */}
                     <span
-                      className="absolute -right-1 -bottom-3 font-display font-black leading-none select-none pointer-events-none text-black/[0.05]"
+                      className="absolute -right-1 -bottom-3 font-display font-black leading-none select-none pointer-events-none text-white/[0.14] z-10"
                       style={{ fontSize: "5.5rem" }}
                     >
                       {cfg.num}
                     </span>
 
-                    {/* Shimmer sweep */}
+                    {/* Shimmer sweep on hover */}
                     <div
-                      className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-600 ease-in-out pointer-events-none"
-                      style={{ background: "linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.55) 50%, transparent 70%)" }}
+                      className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none z-20"
+                      style={{ background: "linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.18) 50%, transparent 70%)" }}
                     />
 
-                    {/* Icon */}
-                    <div className="absolute bottom-4 left-5">
-                      <div className={`w-12 h-12 rounded-xl ${cfg.iconBg} flex items-center justify-center shadow-sm border border-white/60 group-hover:scale-110 transition-transform duration-300`}>
+                    {/* Icon — solid white bg for clarity over photo */}
+                    <div className="absolute bottom-4 left-5 z-20">
+                      <div className={`w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300`}>
                         <Icon size={24} className={cfg.iconText} />
                       </div>
                     </div>
 
                     {/* JCI badge */}
-                    <div className="absolute top-3.5 right-3.5 flex items-center gap-1 bg-white/80 backdrop-blur-sm border border-white/60 rounded-full px-2.5 py-1 shadow-sm">
-                      <Shield size={9} className="text-primary flex-shrink-0" />
-                      <span className="text-primary text-[11px] font-bold font-sans">JCI Certified</span>
+                    <div className="absolute top-4 right-3.5 z-20 flex items-center gap-1.5 bg-black/30 backdrop-blur-md border border-white/20 rounded-full px-2.5 py-1.5">
+                      <Shield size={9} className="text-white flex-shrink-0" />
+                      <span className="text-white text-[11px] font-bold font-sans">JCI Certified</span>
                     </div>
                   </div>
 
