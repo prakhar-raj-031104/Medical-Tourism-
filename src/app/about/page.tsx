@@ -159,14 +159,14 @@ export default function AboutPage() {
       ══════════════════════════════════════════════════ */}
       <section
         className="py-24 lg:py-32 relative overflow-hidden"
-        style={{ background: "linear-gradient(160deg,#E0F7FA 0%,#F0FDFF 50%,#EFF6FF 100%)" }}
+        style={{ background: "linear-gradient(160deg,#EEF7F2 0%,#F4FBF8 50%,#F2FAF6 100%)" }}
       >
         {/* Aurora orbs */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-20 left-[5%] w-[600px] h-[600px] rounded-full opacity-50"
-            style={{ background: "radial-gradient(circle,rgba(8,145,178,0.22) 0%,transparent 70%)", filter: "blur(70px)" }} />
+            style={{ background: "radial-gradient(circle,rgba(27,107,83,0.22) 0%,transparent 70%)", filter: "blur(70px)" }} />
           <div className="absolute top-10 right-[5%] w-[500px] h-[500px] rounded-full opacity-40"
-            style={{ background: "radial-gradient(circle,rgba(6,182,212,0.18) 0%,transparent 70%)", filter: "blur(80px)" }} />
+            style={{ background: "radial-gradient(circle,rgba(46,175,127,0.18) 0%,transparent 70%)", filter: "blur(80px)" }} />
         </div>
 
         <div className="container-wide relative z-10">
@@ -259,7 +259,7 @@ export default function AboutPage() {
 
               {/* Floating glassmorphism pill — center overlap */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
-                <div className="bg-white/90 backdrop-blur-md border border-white/70 rounded-2xl px-5 py-3.5 shadow-[0_8px_32px_rgba(8,145,178,0.2)] text-center">
+                <div className="bg-white/90 backdrop-blur-md border border-white/70 rounded-2xl px-5 py-3.5 shadow-[0_8px_32px_rgba(27,107,83,0.2)] text-center">
                   <p className="font-display font-black text-primary text-2xl leading-none">10+</p>
                   <p className="text-brand-slate font-sans text-xs mt-1 font-semibold">Years Experience</p>
                 </div>
@@ -277,7 +277,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{ backgroundImage: "radial-gradient(circle,rgba(255,255,255,0.8) 1px,transparent 1px)", backgroundSize: "36px 36px" }} />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] pointer-events-none"
-          style={{ background: "radial-gradient(ellipse,rgba(8,145,178,0.14) 0%,transparent 70%)", filter: "blur(40px)" }} />
+          style={{ background: "radial-gradient(ellipse,rgba(27,107,83,0.14) 0%,transparent 70%)", filter: "blur(40px)" }} />
 
         <div className="container-wide relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-start mb-16">

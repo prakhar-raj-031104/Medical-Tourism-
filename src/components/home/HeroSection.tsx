@@ -65,40 +65,40 @@ export default function HeroSection() {
       ref={sectionRef}
       className="relative min-h-[95vh] flex items-center overflow-hidden"
     >
-      {/* Blue-teal tinted base */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(160deg, #E0F7FA 0%, #F0FDFF 40%, #EFF6FF 100%)" }} />
+      {/* Sage-tinted base */}
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(160deg, #EEF7F2 0%, #F4FBF8 40%, #F2FAF6 100%)" }} />
 
-      {/* Aurora animated orbs */}
+      {/* Aurora animated orbs — sage green */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Orb 1 — large teal, top-left */}
+        {/* Orb 1 — deep sage, top-left */}
         <div
           className="animate-aurora-1 absolute -top-[15%] -left-[5%] w-[75vw] h-[75vw] max-w-[1000px] max-h-[1000px] rounded-full"
           style={{
-            background: "radial-gradient(circle at center, rgba(8,145,178,0.32) 0%, rgba(6,182,212,0.18) 40%, transparent 68%)",
+            background: "radial-gradient(circle at center, rgba(27,107,83,0.28) 0%, rgba(46,175,127,0.15) 40%, transparent 68%)",
             filter: "blur(50px)",
           }}
         />
-        {/* Orb 2 — cyan, right */}
+        {/* Orb 2 — mid sage, right */}
         <div
           className="animate-aurora-2 absolute top-[5%] right-[-10%] w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] rounded-full"
           style={{
-            background: "radial-gradient(circle at center, rgba(6,182,212,0.22) 0%, rgba(14,116,144,0.12) 45%, transparent 68%)",
+            background: "radial-gradient(circle at center, rgba(46,175,127,0.20) 0%, rgba(20,84,65,0.10) 45%, transparent 68%)",
             filter: "blur(65px)",
           }}
         />
-        {/* Orb 3 — deep teal, bottom-center */}
+        {/* Orb 3 — pale sage, bottom-center */}
         <div
           className="animate-aurora-3 absolute bottom-[-5%] left-[15%] w-[55vw] h-[55vw] max-w-[750px] max-h-[750px] rounded-full"
           style={{
-            background: "radial-gradient(circle at center, rgba(14,116,144,0.20) 0%, rgba(8,145,178,0.10) 50%, transparent 68%)",
+            background: "radial-gradient(circle at center, rgba(20,84,65,0.18) 0%, rgba(27,107,83,0.09) 50%, transparent 68%)",
             filter: "blur(55px)",
           }}
         />
         {/* Dot grid */}
         <div
-          className="absolute inset-0 opacity-[0.45]"
+          className="absolute inset-0 opacity-[0.40]"
           style={{
-            backgroundImage: "radial-gradient(circle, rgba(8,145,178,0.22) 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(circle, rgba(27,107,83,0.20) 1px, transparent 1px)",
             backgroundSize: "40px 40px",
           }}
         />
@@ -160,7 +160,7 @@ export default function HeroSection() {
 
           {/* ── RIGHT: Image Panel ── */}
           <div className="order-1 lg:order-2 relative hidden lg:block h-[640px]">
-            <div className="h-img-panel absolute inset-0 rounded-2xl overflow-hidden shadow-[0_32px_80px_rgba(8,145,178,0.25)]">
+            <div className="h-img-panel absolute inset-0 rounded-2xl overflow-hidden shadow-[0_32px_80px_rgba(27,107,83,0.22)]">
               <div className="h-img-inner absolute -inset-x-0 -top-[8%] -bottom-[8%]">
                 <Image
                   src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=900&q=85&fit=crop"
@@ -218,7 +218,7 @@ export default function HeroSection() {
       {/* Bottom wave — matches StatsSection gradient start */}
       <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
         <svg viewBox="0 0 1440 56" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <path d="M0 56L1440 56L1440 28C1200 56 960 4 720 20C480 36 240 8 0 28L0 56Z" fill="#E0F7FA" />
+          <path d="M0 56L1440 56L1440 28C1200 56 960 4 720 20C480 36 240 8 0 28L0 56Z" fill="#EEF7F2" />
         </svg>
       </div>
     </section>

@@ -67,12 +67,12 @@ export default function ContactPage() {
   if (submitted) {
     return (
       <div className="min-h-screen flex items-center justify-center px-4"
-        style={{ background: "linear-gradient(160deg,#E0F7FA 0%,#F0FDFF 50%,#EFF6FF 100%)" }}>
+        style={{ background: "linear-gradient(160deg,#EEF7F2 0%,#F4FBF8 50%,#F2FAF6 100%)" }}>
         <motion.div
           initial={{ opacity: 0, scale: 0.88, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-white rounded-3xl shadow-[0_24px_80px_rgba(8,145,178,0.18)] p-10 max-w-lg w-full text-center border border-white/60"
+          className="bg-white rounded-3xl shadow-[0_24px_80px_rgba(27,107,83,0.16)] p-10 max-w-lg w-full text-center border border-white/60"
         >
           <motion.div
             initial={{ scale: 0 }}
@@ -95,16 +95,16 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen" style={{ background: "linear-gradient(160deg,#E0F7FA 0%,#F0FDFF 50%,#EFF6FF 100%)" }}>
+    <div className="min-h-screen" style={{ background: "linear-gradient(160deg,#EEF7F2 0%,#F4FBF8 50%,#F2FAF6 100%)" }}>
 
       {/* ── Hero ── */}
       <section className="pt-16 pb-12 text-center relative overflow-hidden">
         {/* Aurora orbs */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute -top-20 left-[10%] w-[500px] h-[500px] rounded-full opacity-50"
-            style={{ background: "radial-gradient(circle,rgba(8,145,178,0.2) 0%,transparent 70%)", filter: "blur(60px)" }} />
+            style={{ background: "radial-gradient(circle,rgba(27,107,83,0.2) 0%,transparent 70%)", filter: "blur(60px)" }} />
           <div className="absolute top-0 right-[5%] w-[400px] h-[400px] rounded-full opacity-40"
-            style={{ background: "radial-gradient(circle,rgba(6,182,212,0.18) 0%,transparent 70%)", filter: "blur(70px)" }} />
+            style={{ background: "radial-gradient(circle,rgba(46,175,127,0.15) 0%,transparent 70%)", filter: "blur(70px)" }} />
         </div>
 
         <div className="container-wide relative z-10">
@@ -175,7 +175,7 @@ export default function ContactPage() {
                         step > s.id
                           ? "bg-emerald-500 border-emerald-500 text-white shadow-[0_0_0_4px_rgba(52,211,153,0.2)]"
                           : step === s.id
-                          ? "bg-primary border-primary text-white shadow-[0_0_0_4px_rgba(8,145,178,0.2)]"
+                          ? "bg-primary border-primary text-white shadow-[0_0_0_4px_rgba(27,107,83,0.2)]"
                           : "bg-white border-slate-200 text-brand-muted"
                       }`}>
                         {step > s.id ? <CheckCircle2 size={14} /> : s.id}
@@ -232,7 +232,7 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.22,1,0.36,1] }}
             className="bg-white rounded-3xl overflow-hidden border border-white/60"
-            style={{ boxShadow: "0 24px_80px rgba(8,145,178,0.14), 0 4px 20px rgba(0,0,0,0.06)" }}
+            style={{ boxShadow: "0 24px 80px rgba(27,107,83,0.13), 0 4px 20px rgba(0,0,0,0.06)" }}
           >
             {/* Step progress bar */}
             <div className="h-1.5 bg-slate-100">

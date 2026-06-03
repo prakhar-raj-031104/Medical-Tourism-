@@ -121,7 +121,7 @@ export default function TestimonialsSection() {
                 key={test.id}
                 onClick={() => setActive(i)}
                 className={`w-full text-left bg-white rounded-2xl p-5 border-2 transition-all duration-200 cursor-pointer ${
-                  active === i ? "border-primary shadow-[0_4px_20px_rgba(8,145,178,0.15)]" : "border-slate-200 hover:border-primary/40"
+                  active === i ? "border-primary shadow-[0_4px_20px_rgba(27,107,83,0.15)]" : "border-slate-200 hover:border-primary/40"
                 }`}
               >
                 <div className="flex items-center gap-3 mb-3">

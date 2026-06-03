@@ -39,14 +39,14 @@ export default function StatsSection() {
     <section
       className="py-24 lg:py-28"
       ref={ref}
-      style={{ background: "linear-gradient(160deg, #E0F7FA 0%, #F0FDFF 50%, #EFF6FF 100%)" }}
+      style={{ background: "linear-gradient(160deg, #EEF7F2 0%, #F4FBF8 50%, #F2FAF6 100%)" }}
     >
       <div className="container-wide">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
           {stats.map((s) => (
             <div
               key={s.label}
-              className="stat-item group bg-white rounded-2xl lg:rounded-3xl px-6 py-8 lg:px-9 lg:py-10 border border-slate-200/80 shadow-[0_2px_16px_rgba(8,145,178,0.08)] hover:shadow-glass-hover hover:-translate-y-1.5 transition-all duration-300 cursor-default"
+              className="stat-item group bg-white rounded-2xl lg:rounded-3xl px-6 py-8 lg:px-9 lg:py-10 border border-slate-200/80 shadow-[0_2px_16px_rgba(27,107,83,0.08)] hover:shadow-glass-hover hover:-translate-y-1.5 transition-all duration-300 cursor-default"
             >
               <div
                 className={`w-13 h-13 rounded-2xl ${s.iconCls} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}

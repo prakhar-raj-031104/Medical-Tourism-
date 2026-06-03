@@ -149,7 +149,7 @@ export default function PatientJourneySection() {
       {/* Ambient teal glow top-center */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, rgba(8,145,178,0.14) 0%, transparent 70%)", filter: "blur(40px)" }}
+        style={{ background: "radial-gradient(ellipse, rgba(27,107,83,0.14) 0%, transparent 70%)", filter: "blur(40px)" }}
       />
 
       <div className="container-wide relative z-10">
@@ -176,8 +176,8 @@ export default function PatientJourneySection() {
             <div
               className="pj-line-fill absolute inset-0"
               style={{
-                background: "linear-gradient(90deg, #0891B2 0%, #06B6D4 40%, #22D3EE 70%, #0891B2 100%)",
-                boxShadow: "0 0 12px rgba(8,145,178,0.6)",
+                background: "linear-gradient(90deg, #1B6B53 0%, #2EAF7F 40%, #34C68F 70%, #1B6B53 100%)",
+                boxShadow: "0 0 12px rgba(27,107,83,0.55)",
               }}
             />
           </div>
@@ -186,7 +186,7 @@ export default function PatientJourneySection() {
           <div className="lg:hidden absolute top-0 bottom-0 left-[30px] w-px bg-white/10 z-0">
             <div
               className="pj-line-fill absolute inset-0 origin-top"
-              style={{ background: "linear-gradient(180deg, #0891B2, #06B6D4, #0891B2)" }}
+              style={{ background: "linear-gradient(180deg, #1B6B53, #2EAF7F, #1B6B53)" }}
             />
           </div>
 
@@ -202,7 +202,7 @@ export default function PatientJourneySection() {
                     {/* Outer glow ring */}
                     <div
                       className={`w-[60px] h-[60px] rounded-full flex items-center justify-center border ${step.accent}`}
-                      style={{ boxShadow: `0 0 0 4px rgba(8,145,178,0.08)` }}
+                      style={{ boxShadow: `0 0 0 4px rgba(27,107,83,0.08)` }}
                     >
                       {/* Inner icon */}
                       <div

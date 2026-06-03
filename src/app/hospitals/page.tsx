@@ -78,14 +78,14 @@ export default function HospitalsPage() {
       <section
         ref={heroRef}
         className="pt-20 pb-16 relative overflow-hidden"
-        style={{ background: "linear-gradient(160deg,#E0F7FA 0%,#F0FDFF 50%,#EFF6FF 100%)" }}
+        style={{ background: "linear-gradient(160deg,#EEF7F2 0%,#F4FBF8 50%,#F2FAF6 100%)" }}
       >
         {/* Aurora orbs */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-16 left-[8%] w-[500px] h-[500px] rounded-full opacity-50"
-            style={{ background:"radial-gradient(circle,rgba(8,145,178,0.22) 0%,transparent 70%)", filter:"blur(70px)" }} />
+            style={{ background:"radial-gradient(circle,rgba(27,107,83,0.20) 0%,transparent 70%)", filter:"blur(70px)" }} />
           <div className="absolute top-8 right-[4%] w-[420px] h-[420px] rounded-full opacity-40"
-            style={{ background:"radial-gradient(circle,rgba(6,182,212,0.18) 0%,transparent 70%)", filter:"blur(80px)" }} />
+            style={{ background:"radial-gradient(circle,rgba(46,175,127,0.15) 0%,transparent 70%)", filter:"blur(80px)" }} />
         </div>
 
         <div className="container-wide relative z-10">
@@ -108,7 +108,7 @@ export default function HospitalsPage() {
               placeholder="Search hospitals, specialities, cities..."
               value={search}
               onChange={e => setSearch(e.target.value)}
-              className="w-full pl-12 pr-12 py-4 rounded-2xl border-2 border-white/70 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none font-sans text-sm bg-white shadow-[0_8px_32px_rgba(8,145,178,0.12)] transition-all duration-200"
+              className="w-full pl-12 pr-12 py-4 rounded-2xl border-2 border-white/70 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none font-sans text-sm bg-white shadow-[0_8px_32px_rgba(27,107,83,0.11)] transition-all duration-200"
             />
             {search && (
               <button onClick={() => setSearch("")} className="absolute right-4 top-1/2 -translate-y-1/2 text-brand-muted hover:text-primary transition-colors">

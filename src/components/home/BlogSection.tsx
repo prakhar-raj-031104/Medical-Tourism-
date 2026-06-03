@@ -40,7 +40,7 @@ export default function BlogSection() {
             <article key={post.id} className="blog-card">
               <Link
                 href={`/blog/${post.id}`}
-                className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-primary/30 hover:shadow-[0_8px_40px_rgba(8,145,178,0.12)] hover:-translate-y-1.5 transition-all duration-300 h-full"
+                className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-primary/30 hover:shadow-[0_8px_40px_rgba(27,107,83,0.11)] hover:-translate-y-1.5 transition-all duration-300 h-full"
               >
                 {/* Image */}
                 <div className="relative overflow-hidden" style={{ height: i === 0 ? "260px" : "220px" }}>

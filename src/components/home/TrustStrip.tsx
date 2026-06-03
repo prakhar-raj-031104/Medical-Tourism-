@@ -21,7 +21,7 @@ export default function TrustStrip() {
   const doubled = [...logos, ...logos];
 
   return (
-    <section className="py-8 overflow-hidden" style={{ background: "linear-gradient(90deg, #F0FDFF 0%, #EFF6FF 50%, #F0FDFF 100%)" }}>
+    <section className="py-8 overflow-hidden" style={{ background: "linear-gradient(90deg, #F4FBF8 0%, #F2FAF6 50%, #F4FBF8 100%)" }}>
       {/* Label */}
       <p className="text-center font-sans text-xs font-bold uppercase tracking-[0.18em] text-brand-muted mb-7">
         Exclusively partnered with internationally accredited facilities
@@ -62,11 +62,11 @@ export default function TrustStrip() {
         {/* Fade edges */}
         <div
           className="absolute inset-y-0 left-0 w-24 pointer-events-none z-10"
-          style={{ background: "linear-gradient(to right, #F0FDFF, transparent)" }}
+          style={{ background: "linear-gradient(to right, #F4FBF8, transparent)" }}
         />
         <div
           className="absolute inset-y-0 right-0 w-24 pointer-events-none z-10"
-          style={{ background: "linear-gradient(to left, #F0FDFF, transparent)" }}
+          style={{ background: "linear-gradient(to left, #F4FBF8, transparent)" }}
         />
       </div>
     </section>
