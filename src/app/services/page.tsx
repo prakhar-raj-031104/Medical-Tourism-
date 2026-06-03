@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowUpRight, Heart, Brain, Eye, Baby, Smile,
   Sparkles, Activity, Bone, Search, X,
-  TrendingDown, Building2, Globe, CheckCircle2,
+  Shield, Building2, Globe, CheckCircle2, Stethoscope, Award,
 } from "lucide-react";
 import { services } from "@/lib/data";
 import gsap from "gsap";
@@ -109,10 +109,10 @@ const FILTERS = [
 
 // ── Hero stats ────────────────────────────────────────────────
 const heroStats = [
-  { icon: Sparkles,  value: "8+",   label: "Specialities"     },
-  { icon: Building2, value: "200+", label: "JCI Hospitals"    },
-  { icon: TrendingDown, value: "80%", label: "Avg. Savings"   },
-  { icon: Globe,     value: "45",   label: "Countries"        },
+  { icon: Sparkles,    value: "8+",   label: "Medical Disciplines" },
+  { icon: Building2,   value: "200+", label: "JCI Hospitals"       },
+  { icon: Award,       value: "97%",  label: "Clinical Outcomes"   },
+  { icon: Globe,       value: "45",   label: "Countries Served"    },
 ];
 
 export default function ServicesPage() {
@@ -212,8 +212,8 @@ export default function ServicesPage() {
 
           {/* Subtitle */}
           <p className="sh-sub text-brand-slate font-sans text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-            Access expert treatment at 200+ JCI-accredited hospitals across 45 countries —
-            with full cost transparency and savings of <strong className="text-brand-dark font-semibold">50–80% vs. Western prices.</strong>
+            Access board-certified specialists at 200+ JCI-accredited hospitals across 45 countries —
+            with <strong className="text-brand-dark font-semibold">evidence-based treatment planning</strong> and a dedicated medical coordinator at every step.
           </p>
 
           {/* Stats row */}
@@ -361,10 +361,10 @@ export default function ServicesPage() {
                             <span className="text-[11px] font-black text-white font-sans leading-none">{cfg.num}</span>
                           </div>
 
-                          {/* Savings pill — top right */}
-                          <div className="absolute top-3.5 right-3.5 z-20 flex items-center gap-1.5 bg-emerald-500/90 backdrop-blur-sm rounded-full px-3 py-1.5 shadow-md">
-                            <span className="w-1.5 h-1.5 rounded-full bg-white flex-shrink-0" />
-                            <span className="text-white font-bold font-sans text-xs">Save {service.savingsVsUS}</span>
+                          {/* JCI accreditation pill — top right */}
+                          <div className="absolute top-3.5 right-3.5 z-20 flex items-center gap-1.5 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-3 py-1.5 shadow-md">
+                            <Shield size={10} className="text-white flex-shrink-0" />
+                            <span className="text-white font-bold font-sans text-xs">JCI Accredited</span>
                           </div>
 
                           {/* Shimmer sweep on hover */}
@@ -418,13 +418,13 @@ export default function ServicesPage() {
                           {/* Footer */}
                           <div className="pt-4 border-t border-brand-border mt-auto">
                             <p className="text-[10px] uppercase tracking-widest text-brand-muted font-sans font-bold mb-1">
-                              Average cost abroad
+                              Treatment access range
                             </p>
                             <div className="flex items-center justify-between">
                               <p className="text-sm font-bold text-primary font-sans">{service.avgCost}</p>
-                              <span className="inline-flex items-center gap-1 text-xs font-bold text-emerald-600 font-sans bg-emerald-50 border border-emerald-100 rounded-full px-2.5 py-1">
-                                <TrendingDown size={10} />
-                                {service.savingsVsUS} vs. US
+                              <span className="inline-flex items-center gap-1 text-xs font-bold text-primary font-sans bg-primary/8 border border-primary/15 rounded-full px-2.5 py-1">
+                                <CheckCircle2 size={10} />
+                                Internationally certified
                               </span>
                             </div>
                           </div>
@@ -447,7 +447,7 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
             {[
               { icon: CheckCircle2, title: "JCI-Accredited Only",   desc: "Every hospital partner meets Joint Commission International standards — the gold standard for patient safety." },
-              { icon: TrendingDown, title: "100% Cost Transparent", desc: "You receive a full itemised quote before committing — no surprise fees, no hidden charges." },
+              { icon: Shield,       title: "Full Treatment Plan",    desc: "You receive a complete clinical and logistical plan before committing — reviewed by our medical team." },
               { icon: Globe,        title: "End-to-End Support",    desc: "Your dedicated medical coordinator handles travel, accommodation, translation, and follow-up care." },
             ].map((item) => (
               <div key={item.title} className="flex flex-col items-center gap-3">
@@ -483,18 +483,18 @@ export default function ServicesPage() {
         <div className="container-wide relative z-10 text-center">
           <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full text-xs font-bold text-brand-sage-mid uppercase tracking-widest font-sans mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            Free · No commitment
+            Confidential · Clinically reviewed · No obligation
           </span>
 
           <h2 className="font-display font-bold text-white leading-tight mb-5 mx-auto"
             style={{ fontSize: "clamp(1.9rem, 4vw, 3rem)", maxWidth: "640px" }}>
-            Not sure which treatment{" "}
+            Not sure which specialist{" "}
             <span className="text-gradient-teal">you need?</span>
           </h2>
 
           <p className="text-white/60 font-sans text-lg leading-relaxed max-w-xl mx-auto mb-10">
-            Our senior medical coordinators review your case — free of charge — and connect you directly
-            with the right specialist at the right hospital.
+            Our senior medical team reviews your case — free of charge — and connects you with the
+            right board-certified specialist at the most appropriate JCI-accredited hospital.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

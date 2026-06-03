@@ -43,16 +43,16 @@ export default function CTABanner() {
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2.5 px-5 py-2 bg-white/15 rounded-full text-white/90 text-sm font-semibold font-sans mb-7">
               <span className="w-2 h-2 rounded-full bg-white animate-pulse flex-shrink-0" />
-              Free consultation · No commitment · 24-hour response
+              Confidential · Clinically reviewed · Response within 24 hours
             </div>
 
             <h2 className="font-display font-bold text-white leading-tight mb-6"
                 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
-              Start Your Medical Journey Today
+              Begin Your Care Journey Today
             </h2>
             <p className="body-xl text-white/80 max-w-2xl mx-auto mb-10">
-              Speak to a medical travel specialist — free. We&apos;ll match you with the right hospital,
-              provide transparent cost breakdowns, and support you every step of the way.
+              Speak directly with a senior medical coordinator — at no charge. We will assess your
+              case, identify the right specialist, and provide a complete clinical and logistical roadmap.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -60,7 +60,7 @@ export default function CTABanner() {
                 href="/contact"
                 className="cta-btn inline-flex items-center justify-center gap-2.5 px-9 py-4 bg-white text-primary font-bold rounded-full text-base hover:bg-slate-50 transition-colors font-sans shadow-lg"
               >
-                Get Free Consultation <ArrowRight size={18} />
+                Request a Free Assessment <ArrowRight size={18} />
               </Link>
               <a
                 href="tel:+18006332784"
@@ -79,7 +79,7 @@ export default function CTABanner() {
             </div>
 
             <p className="text-white/45 text-sm font-sans mt-8">
-              Available 24/7 · GDPR compliant · Your data is never shared
+              HIPAA & GDPR compliant · Patient data protected · Medically supervised
             </p>
           </div>
         </div>

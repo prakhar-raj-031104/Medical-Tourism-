@@ -11,12 +11,12 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const reasons = [
-  { icon: Shield, title: "JCI-Accredited Only", description: "Every partner hospital carries Joint Commission International accreditation — the global gold standard.", color: "bg-teal-50 text-teal-600" },
-  { icon: DollarSign, title: "100% Cost Transparency", description: "Full cost breakdown before you decide — no hidden fees. Compare quotes from multiple hospitals.", color: "bg-blue-50 text-blue-600" },
-  { icon: Users, title: "Dedicated Coordinator", description: "A personal coordinator from inquiry to recovery — logistics, translation, and hospital communication.", color: "bg-violet-50 text-violet-600" },
-  { icon: HeartHandshake, title: "Free for Patients", description: "Our service costs you nothing. We receive a referral fee from hospitals — zero charge to you.", color: "bg-rose-50 text-rose-600" },
-  { icon: Clock, title: "Faster Access", description: "Skip 6–18 month waitlists. Most partner hospitals schedule consultations within 48 hours.", color: "bg-amber-50 text-amber-600" },
-  { icon: Award, title: "90-Day Follow-Up", description: "Remote follow-up protocol after every procedure. Local physician liaisons in 30+ countries.", color: "bg-emerald-50 text-emerald-600" },
+  { icon: Shield,        title: "JCI-Accredited Network",    description: "Every partner hospital holds Joint Commission International accreditation — the global benchmark for patient safety and clinical excellence.", color: "bg-teal-50 text-teal-600" },
+  { icon: DollarSign,    title: "Full Treatment Transparency", description: "Receive a complete treatment plan and itemised cost estimate before any decision — reviewed and signed off by our clinical team.", color: "bg-blue-50 text-blue-600" },
+  { icon: Users,         title: "Dedicated Medical Coordinator", description: "A qualified coordinator accompanies your entire care journey — pre-treatment assessments, hospital liaison, and post-operative follow-up.", color: "bg-violet-50 text-violet-600" },
+  { icon: HeartHandshake,title: "No Patient-Side Fees",      description: "Our coordination service carries no charge to patients. We operate on a hospital referral model — your care is never financially influenced.", color: "bg-rose-50 text-rose-600" },
+  { icon: Clock,         title: "Priority Clinical Access",  description: "Bypass months-long waiting lists. Partner hospitals offer prioritised scheduling with specialist consultations typically within 48 hours.", color: "bg-amber-50 text-amber-600" },
+  { icon: Award,         title: "90-Day Post-Treatment Care", description: "A structured remote follow-up protocol with your treating physician and local healthcare liaison in 30+ countries.", color: "bg-emerald-50 text-emerald-600" },
 ];
 
 export default function WhyChooseUs() {
@@ -81,10 +81,10 @@ export default function WhyChooseUs() {
             {/* Stats grid */}
             <div className="wcu-stats grid grid-cols-2 gap-3 mt-4">
               {[
-                { v: "10+", l: "Years Experience" },
-                { v: "50K+", l: "Lives Changed" },
-                { v: "24/7", l: "Patient Support" },
-                { v: "100%", l: "Free Service" },
+                { v: "10+",  l: "Years in Clinical Practice"   },
+                { v: "50K+", l: "Patients Successfully Treated" },
+                { v: "24/7", l: "Medical Support Line"         },
+                { v: "97%",  l: "Positive Clinical Outcomes"   },
               ].map((s) => (
                 <div key={s.l} className="wcu-stat bg-slate-50 rounded-xl p-5 border border-slate-200 text-center">
                   <p className="font-display font-bold text-3xl text-primary">{s.v}</p>
@@ -98,8 +98,8 @@ export default function WhyChooseUs() {
           <div className="wcu-right">
             <SectionHeader
               badge="Why OneEarthMed Alliance"
-              title="The Smartest Way to Access "
-              highlight="Global Healthcare"
+              title="Clinically Trusted Across "
+              highlight="45 Countries"
               align="left"
             />
             <div className="wcu-reason-grid grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
@@ -119,7 +119,7 @@ export default function WhyChooseUs() {
               ))}
             </div>
             <Link href="/contact" className="btn-primary inline-flex">
-              Get Free Consultation
+              Request a Clinical Assessment
               <ArrowRight size={18} />
             </Link>
           </div>

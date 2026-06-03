@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Heart, Brain, Eye, Baby, Smile, Sparkles, Activity, Bone } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Heart, Brain, Eye, Baby, Smile, Sparkles, Activity, Bone, Shield } from "lucide-react";
 import { services } from "@/lib/data";
 import SectionHeader from "@/components/shared/SectionHeader";
 import gsap from "gsap";
@@ -76,7 +76,7 @@ export default function ServicesSection() {
           badge="Medical Specialities"
           title="Expert Care Across "
           highlight="All Specialities"
-          description="From complex cardiac procedures to elective dental work — access world-class specialists with savings of 60–80% vs. Western prices."
+          description="From complex cardiac surgery to specialised dental care — access board-certified international specialists at JCI-accredited hospitals worldwide."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -114,9 +114,10 @@ export default function ServicesSection() {
                       </div>
                     </div>
 
-                    {/* Save pill */}
-                    <div className="absolute top-3.5 right-3.5 bg-white/80 backdrop-blur-sm border border-white/60 rounded-full px-2.5 py-1 shadow-sm">
-                      <span className="text-emerald-600 text-[11px] font-bold font-sans">Save {service.savingsVsUS}</span>
+                    {/* JCI badge */}
+                    <div className="absolute top-3.5 right-3.5 flex items-center gap-1 bg-white/80 backdrop-blur-sm border border-white/60 rounded-full px-2.5 py-1 shadow-sm">
+                      <Shield size={9} className="text-primary flex-shrink-0" />
+                      <span className="text-primary text-[11px] font-bold font-sans">JCI Certified</span>
                     </div>
                   </div>
 
@@ -145,16 +146,16 @@ export default function ServicesSection() {
                       ))}
                     </div>
 
-                    {/* Cost row */}
+                    {/* Treatment access row */}
                     <div className="pt-4 border-t border-slate-100">
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="text-[10px] uppercase tracking-widest text-brand-muted font-sans font-bold mb-0.5">Avg. cost abroad</p>
+                          <p className="text-[10px] uppercase tracking-widest text-brand-muted font-sans font-bold mb-0.5">Treatment range</p>
                           <p className="text-sm font-bold text-primary font-sans">{service.avgCost}</p>
                         </div>
                         <div className="flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
-                          <span className="text-xs font-bold text-emerald-600 font-sans">-{service.savingsVsUS} vs. US</span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                          <span className="text-xs font-bold text-primary font-sans">International access</span>
                         </div>
                       </div>
                     </div>

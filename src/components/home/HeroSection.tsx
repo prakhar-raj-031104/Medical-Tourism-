@@ -4,22 +4,22 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Shield, Star, TrendingDown, Users, Building2, Globe2, CheckCircle } from "lucide-react";
+import { ArrowRight, Shield, Star, Stethoscope, Users, Building2, Globe2, CheckCircle } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const trustItems = [
-  { icon: Shield, label: "JCI Accredited", sub: "200+ hospitals" },
-  { icon: Star, label: "97% Satisfaction", sub: "12,000+ reviews" },
-  { icon: CheckCircle, label: "Free Consultation", sub: "No commitment" },
+  { icon: Shield,       label: "JCI Accredited",    sub: "200+ partner hospitals" },
+  { icon: Star,         label: "97% Outcomes",      sub: "Clinical success rate"  },
+  { icon: CheckCircle,  label: "Free Assessment",   sub: "No obligation"          },
 ];
 
 const heroStats = [
-  { icon: Users, value: "50,000+", label: "Patients" },
-  { icon: Building2, value: "200+", label: "Hospitals" },
-  { icon: Globe2, value: "45+", label: "Countries" },
+  { icon: Users,     value: "50,000+", label: "Patients Treated"    },
+  { icon: Building2, value: "200+",    label: "Accredited Hospitals" },
+  { icon: Globe2,    value: "45+",     label: "Countries Served"     },
 ];
 
 export default function HeroSection() {
@@ -112,7 +112,7 @@ export default function HeroSection() {
             <div className="h-badge inline-flex items-center gap-2.5 px-4 py-2 bg-primary/8 border border-primary/20 rounded-full mb-8">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse flex-shrink-0" />
               <span className="text-sm font-semibold text-primary font-sans tracking-wide">
-                Trusted by 50,000+ patients across 45 countries
+                ISO & JCI Certified Care · 45 Countries
               </span>
             </div>
 
@@ -127,18 +127,18 @@ export default function HeroSection() {
             </div>
 
             <p className="h-sub body-xl max-w-lg mb-10">
-              Connect with <strong className="text-brand-dark font-semibold">200+ JCI-accredited hospitals</strong> across
-              45 countries — with full cost transparency, a dedicated coordinator, and end-to-end support from inquiry to recovery.
+              Access treatment at <strong className="text-brand-dark font-semibold">200+ JCI-accredited hospitals</strong> across
+              45 countries — guided by a dedicated medical coordinator from your first consultation through to full recovery.
             </p>
 
             <div className="h-actions flex flex-col sm:flex-row gap-4 mb-12">
-              <Link href="/contact" className="btn-primary text-base gap-2.5 shadow-teal">
-                Get Free Consultation
+              <Link href="/contact" className="btn-primary text-base gap-2.5 shadow-sage">
+                Request a Free Assessment
                 <ArrowRight size={18} />
               </Link>
-              <Link href="/cost-estimator" className="btn-outline text-base gap-2.5">
-                <TrendingDown size={18} />
-                Estimate My Savings
+              <Link href="/services" className="btn-outline text-base gap-2.5">
+                <Stethoscope size={18} />
+                Browse Treatments
               </Link>
             </div>
 
@@ -183,10 +183,10 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              {/* Savings badge */}
+              {/* Clinical outcome badge */}
               <div className="h-savings absolute bottom-6 left-6 bg-white rounded-xl px-5 py-4 shadow-xl">
-                <p className="font-display font-bold text-3xl text-emerald-600 leading-none">Up to 80%</p>
-                <p className="text-sm text-brand-slate font-sans mt-1">Cost savings vs. US & UK</p>
+                <p className="font-display font-bold text-3xl text-primary leading-none">97%</p>
+                <p className="text-sm text-brand-slate font-sans mt-1">Clinical success rate</p>
               </div>
             </div>
 
