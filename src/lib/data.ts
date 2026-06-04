@@ -110,7 +110,7 @@ export const destinations = [
     speciality: "Cardiology, Cosmetic, Orthopaedics",
     visaInfo: "Visa-free for most nationalities",
     flag: "🇹🇭",
-    image: "https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=800&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=900&q=85",
   },
   {
     id: "india",
@@ -124,7 +124,7 @@ export const destinations = [
     speciality: "Cardiac, Oncology, Transplants",
     visaInfo: "e-Visa available",
     flag: "🇮🇳",
-    image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=900&q=85",
   },
   {
     id: "turkey",
@@ -138,7 +138,7 @@ export const destinations = [
     speciality: "Hair Transplant, Dental, Cardiology",
     visaInfo: "e-Visa available",
     flag: "🇹🇷",
-    image: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=900&q=85",
   },
   {
     id: "malaysia",
@@ -152,7 +152,7 @@ export const destinations = [
     speciality: "Fertility, Cardiology, Oncology",
     visaInfo: "Visa-free for many nationalities",
     flag: "🇲🇾",
-    image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=900&q=85",
   },
   {
     id: "singapore",
@@ -166,7 +166,7 @@ export const destinations = [
     speciality: "Neurology, Oncology, Complex Surgery",
     visaInfo: "Visa-free for most",
     flag: "🇸🇬",
-    image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=900&q=85",
   },
   {
     id: "uae",
@@ -180,7 +180,7 @@ export const destinations = [
     speciality: "Cosmetic, Cardiology, IVF",
     visaInfo: "Visa on arrival / e-Visa",
     flag: "🇦🇪",
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=85",
   },
 ];
 
@@ -197,7 +197,7 @@ export const hospitals = [
     rating: 4.9,
     reviewCount: 2847,
     color: "from-teal-500 to-cyan-600",
-    image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=600&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=720&q=85",
   },
   {
     id: "apollo",
@@ -211,7 +211,7 @@ export const hospitals = [
     rating: 4.8,
     reviewCount: 3421,
     color: "from-blue-500 to-indigo-600",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbbe823c61?w=600&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1629909614456-6b1c5c94cecc?auto=format&fit=crop&w=720&q=85",
   },
   {
     id: "anadolu",
@@ -225,7 +225,7 @@ export const hospitals = [
     rating: 4.7,
     reviewCount: 1654,
     color: "from-red-500 to-rose-600",
-    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1631563018856-81be9c118283?auto=format&fit=crop&w=720&q=85",
   },
   {
     id: "gleneagles",
@@ -239,7 +239,7 @@ export const hospitals = [
     rating: 4.8,
     reviewCount: 2103,
     color: "from-cyan-500 to-teal-600",
-    image: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=600&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1629380108567-a0b544204f8c?auto=format&fit=crop&w=720&q=85",
   },
   {
     id: "mount-elizabeth",
@@ -253,7 +253,7 @@ export const hospitals = [
     rating: 4.9,
     reviewCount: 1987,
     color: "from-violet-500 to-purple-600",
-    image: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1504813184591-01572f98c85f?auto=format&fit=crop&w=720&q=85",
   },
   {
     id: "american-hospital",
@@ -267,7 +267,7 @@ export const hospitals = [
     rating: 4.8,
     reviewCount: 1432,
     color: "from-amber-500 to-orange-600",
-    image: "https://images.unsplash.com/photo-1632833239869-a37e3a5806d2?w=600&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=720&q=85",
   },
 ];
 
@@ -360,7 +360,7 @@ export const blogPosts = [
     color: "from-teal-400 to-cyan-500",
     author: "Dr. Priya Sharma",
     authorRole: "Medical Travel Advisor",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1666886573419-aaaca27447de?auto=format&fit=crop&w=900&q=85",
   },
   {
     id: 2,
@@ -372,7 +372,7 @@ export const blogPosts = [
     color: "from-blue-400 to-indigo-500",
     author: "James Hartley",
     authorRole: "Healthcare Consultant",
-    image: "https://images.unsplash.com/photo-1580281357789-8b6f9b73f9b4?w=800&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=900&q=85",
   },
   {
     id: 3,
@@ -384,7 +384,7 @@ export const blogPosts = [
     color: "from-amber-400 to-orange-500",
     author: "Anna Kowalski",
     authorRole: "Travel Health Writer",
-    image: "https://images.unsplash.com/photo-1612349317529-58e9b0fb8d43?w=800&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=900&q=85",
   },
 ];
 

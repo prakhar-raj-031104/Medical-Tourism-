@@ -29,14 +29,14 @@ const iconMap: Record<string, React.ElementType> = {
 
 // ── Context-relevant medical images — clearly visible, no overlay ─
 const serviceImages: Record<string, string> = {
-  cardiology:    "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=700&q=85&fit=crop",  // cardiac/surgical scene
-  oncology:      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&q=85&fit=crop",// oncology doctor consultation
-  orthopaedics:  "https://images.unsplash.com/photo-1551076805-e1869033e561?w=700&q=85&fit=crop",  // orthopaedic medical equipment
-  ivf:           "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=700&q=85&fit=crop",// fertility & patient care
-  dental:        "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=700&q=85&fit=crop",// dental clinical procedure
-  neurology:     "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=700&q=85&fit=crop",// neurosurgery operating theatre
-  cosmetic:      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=700&q=85&fit=crop",  // cosmetic surgery specialist
-  ophthalmology: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=700&q=85&fit=crop",// ophthalmology & eye care
+  cardiology:    "https://images.unsplash.com/photo-1690306816872-91063f6de36b?auto=format&fit=crop&w=800&q=85",
+  oncology:      "https://images.unsplash.com/photo-1631563018856-81be9c118283?auto=format&fit=crop&w=800&q=85",
+  orthopaedics:  "https://images.unsplash.com/photo-1706777280252-5de52771cf13?auto=format&fit=crop&w=800&q=85",
+  ivf:           "https://images.unsplash.com/photo-1706065264583-55f1a8549769?auto=format&fit=crop&w=800&q=85",
+  dental:        "https://images.unsplash.com/photo-1777331903190-341a3dd0441b?auto=format&fit=crop&w=800&q=85",
+  neurology:     "https://images.unsplash.com/photo-1759813641406-980519f58b1c?auto=format&fit=crop&w=800&q=85",
+  cosmetic:      "https://images.unsplash.com/photo-1746708810803-722593e53772?auto=format&fit=crop&w=800&q=85",
+  ophthalmology: "https://images.unsplash.com/photo-1766310549795-dd0fc75d499f?auto=format&fit=crop&w=800&q=85",
 };
 
 // ── Per-service visual config ──────────────────────────────────

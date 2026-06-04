@@ -20,7 +20,7 @@ const team = [
     bio: "Former surgical consultant at Johns Hopkins with 18 years in international healthcare. Dr. Chen leads our hospital vetting process and sets the quality benchmark across our entire global network.",
     expertise: ["Hospital Accreditation", "Surgical Standards", "Quality Control"],
     years: "18 yrs experience",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=700&q=85&fit=crop",
+    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=85&crop=faces",
     accent: "from-teal-500 to-cyan-500",
   },
   {
@@ -29,7 +29,7 @@ const team = [
     bio: "With a background in international patient advocacy, James has personally guided over 4,000 patients through their medical journeys — from first inquiry to full recovery and follow-up.",
     expertise: ["Patient Advocacy", "Care Coordination", "Crisis Management"],
     years: "12 yrs experience",
-    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=700&q=85&fit=crop",
+    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=800&q=85&crop=faces",
     accent: "from-blue-500 to-indigo-500",
   },
   {
@@ -38,7 +38,7 @@ const team = [
     bio: "A licensed physician turned medical travel specialist. Dr. Sharma helps patients understand complex treatment options and matches them to the best-qualified surgeons across our partner hospitals.",
     expertise: ["Treatment Planning", "Surgeon Matching", "Second Opinions"],
     years: "14 yrs experience",
-    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=700&q=85&fit=crop",
+    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=85&crop=faces",
     accent: "from-violet-500 to-purple-500",
   },
   {
@@ -47,7 +47,7 @@ const team = [
     bio: "Anna has lived and worked in seven countries across Asia and Europe. She provides patients with nuanced, first-hand knowledge of each destination — hospitals, culture, logistics, and recovery.",
     expertise: ["Destination Expertise", "Visa & Logistics", "Cultural Support"],
     years: "9 yrs experience",
-    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=700&q=85&fit=crop",
+    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=85&crop=faces",
     accent: "from-rose-500 to-pink-500",
   },
   {
@@ -56,7 +56,7 @@ const team = [
     bio: "Fluent in Arabic, English, and Farsi, Mohammed specialises in serving patients from the GCC and wider MENA region — handling cultural sensitivities, halal dietary needs, and family accommodation.",
     expertise: ["Arabic Language Support", "GCC Patient Care", "Cultural Liaison"],
     years: "11 yrs experience",
-    image: "https://images.unsplash.com/photo-1612349317529-58e9b0fb8d43?w=700&q=85&fit=crop",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=85&crop=faces",
     accent: "from-amber-500 to-orange-500",
   },
   {
@@ -65,7 +65,7 @@ const team = [
     bio: "Lisa runs our annual hospital re-accreditation audits, patient satisfaction surveys, and coordinates our 90-day post-treatment follow-up programme across all destinations.",
     expertise: ["Audit & Compliance", "Patient Surveys", "Outcome Tracking"],
     years: "10 yrs experience",
-    image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=700&q=85&fit=crop",
+    image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=85&crop=faces",
     accent: "from-emerald-500 to-green-500",
   },
 ];
@@ -200,7 +200,7 @@ export default function AboutPage() {
                 {/* Photo 1 — tall left column */}
                 <div className="row-span-2 relative rounded-2xl overflow-hidden">
                   <Image
-                    src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=500&q=85&fit=crop"
+                    src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=700&q=85"
                     alt="Modern JCI-accredited hospital facility"
                     fill
                     className="object-cover"
@@ -222,7 +222,7 @@ export default function AboutPage() {
                 {/* Photo 2 — top right */}
                 <div className="relative rounded-2xl overflow-hidden">
                   <Image
-                    src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=500&q=85&fit=crop"
+                    src="https://images.unsplash.com/photo-1666886573419-aaaca27447de?auto=format&fit=crop&w=700&q=85"
                     alt="Doctor in compassionate consultation with patient"
                     fill
                     className="object-cover"
@@ -238,7 +238,7 @@ export default function AboutPage() {
                 {/* Photo 3 — bottom right */}
                 <div className="relative rounded-2xl overflow-hidden">
                   <Image
-                    src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&q=85&fit=crop"
+                    src="https://images.unsplash.com/photo-1759813641406-980519f58b1c?auto=format&fit=crop&w=700&q=85"
                     alt="State-of-the-art surgical operating theatre"
                     fill
                     className="object-cover"

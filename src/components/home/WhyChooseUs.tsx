@@ -58,7 +58,7 @@ export default function WhyChooseUs() {
             <div className="relative rounded-2xl overflow-hidden" style={{ height: "520px" }}>
               <div className="absolute -inset-x-0 -top-[6%] -bottom-[6%]">
                 <Image
-                  src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=700&q=85&fit=crop"
+                  src="https://images.unsplash.com/photo-1666886573419-aaaca27447de?auto=format&fit=crop&w=900&q=85"
                   alt="Doctor consulting with patient about treatment options"
                   fill
                   className="object-cover"

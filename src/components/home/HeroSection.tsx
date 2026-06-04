@@ -231,7 +231,7 @@ export default function HeroSection() {
             >
               <div className="h-img-inner absolute -inset-x-0 -top-[8%] -bottom-[8%]">
                 <Image
-                  src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=800&q=90&fit=crop"
+                  src="https://images.unsplash.com/photo-1666886573419-aaaca27447de?auto=format&fit=crop&w=900&q=90"
                   alt="Specialist doctor in consultation with patient"
                   fill
                   className="object-cover object-top"
